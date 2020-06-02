@@ -23,9 +23,10 @@ public struct ColorPicker : View {
         .aspectRatio(1, contentMode: .fit)
     }
     
-    public init(color: Binding<DynamicColor>, strokeWidth: CGFloat) {
+    public init(color: Binding<DynamicColor>, strokeWidth: CGFloat, colorChanged: @escaping (DynamicColor) -> Void) {
        self.color = color
        self.strokeWidth = strokeWidth
+       colorChanged(color.wrappedValue)
     }
 }
 
